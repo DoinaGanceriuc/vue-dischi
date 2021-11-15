@@ -1,6 +1,6 @@
 <template>
   <header id="site_header">
-    <div class="logo text-start align-middle">
+    <div class="logo text-start align-middle container">
        <img width="50" src="../assets/spotify-logo.png" alt="">
     </div>
   </header>
