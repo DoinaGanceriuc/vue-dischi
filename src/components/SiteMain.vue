@@ -22,7 +22,8 @@ export default {
 @import '../assets/scss/variables.scss';
 main {
   background-color: $bg_dark_contain;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 200px);
+  overflow: auto;
   .card {
     background-color: $bg_dark_top;
 
