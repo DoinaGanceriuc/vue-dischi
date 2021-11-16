@@ -27,8 +27,7 @@ main {
     background-color: $bg_dark_top;
 
     .card-img-top {
-      width: 130px;
-      height: 130px;
+      width: 90%;
       padding-top: 1rem;
     }
   }
