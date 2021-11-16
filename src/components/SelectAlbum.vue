@@ -1,13 +1,14 @@
 <template>
-      <div>
-        <select v-model="selected" class="form-select" aria-label="" @change="$emit('selectAlbums', selected)">
-          <option selected>Select genre</option>
+      <form>
+        <select v-model="selected" class="form-select" aria-label="" @change.prevent="$emit('selectAlbums', selected)">
+          <option value="">Choose genre...</option>
+          <option value="All">All albums</option>
           <option value="Rock">Rock</option>
           <option value="Pop">Pop</option>
           <option value="Jazz">Jazz</option>
           <option value="Metal">Metal</option>
         </select>
-      </div>
+      </form>
 </template>
 
 <script>
@@ -25,3 +26,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import "../assets/scss/variables.scss";
+form {
+  padding-top: 1rem;
+}
+</style>

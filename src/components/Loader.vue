@@ -1,8 +1,8 @@
 <template>
   <div class="loader" v-if="!loading">
     <SelectAlbum @selectAlbums="select" />
-    <div class="row row-cols-md-6 gx-5 py-5 justify-content-center">
-      <div class="col py-3" v-for="poster in posters" :key="poster.id">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-6 py-5 justify-content-center">
+      <div class="col py-3" v-for="poster in getFilteredAlbums" :key="poster.id">
         <div class="card h-100 align-items-center">
           <img :src="poster.poster" class="card-img-top" :alt="poster.author" />
           <div class="card-body text-center">
@@ -36,7 +36,8 @@ export default {
     return {
       posters: [],
       API_URL: 'https://flynn.boolean.careers/exercises/api/array/music',
-      loading: true
+      loading: true,
+      optionSelected: ''
     }
   },
   methods: {
@@ -55,10 +56,24 @@ export default {
     },
     select (elementoSelezionato) {
       console.log(elementoSelezionato)
+      this.optionSelected = elementoSelezionato
+    /* console.log(this.optionSelected) */
     }
   },
   mounted () {
     setTimeout(this.callApi, 2000)
+  },
+  computed: {
+    getFilteredAlbums () {
+      if (this.optionSelected === 'All') {
+        return this.posters
+      }
+      const filteredAlbums = this.posters.filter((poster) => {
+        return poster.genre.includes(this.optionSelected)
+      }
+      )
+      return filteredAlbums
+    }
   }
 }
 </script>
