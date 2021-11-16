@@ -4,15 +4,6 @@
       <div class="logo text-start align-middle">
         <img width="50" src="../assets/spotify-logo.png" alt="" />
       </div>
-      <div>
-        <select class="form-select" aria-label="">
-          <option selected>Select genre</option>
-          <option value="Rock">Rock</option>
-          <option value="Pop">Pop</option>
-          <option value="Jazz">Jazz</option>
-          <option value="Metal">Metal</option>
-        </select>
-      </div>
     </div>
     <!-- /.container -->
   </header>
@@ -20,7 +11,12 @@
 </template>
 
 <script>
-export default {}
+/* import SelectAlbum from '../components/SelectAlbum.vue' */
+export default {
+  /*  components: {
+    SelectAlbum
+  } */
+}
 </script>
 
 <style lang="scss">

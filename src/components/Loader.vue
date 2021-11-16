@@ -1,5 +1,6 @@
 <template>
   <div class="loader" v-if="!loading">
+    <SelectAlbum @selectAlbums="select" />
     <div class="row row-cols-md-6 gx-5 py-5 justify-content-center">
       <div class="col py-3" v-for="poster in posters" :key="poster.id">
         <div class="card h-100 align-items-center">
@@ -26,7 +27,11 @@
 
 <script>
 import axios from 'axios'
+import SelectAlbum from '../components/SelectAlbum.vue'
 export default {
+  components: {
+    SelectAlbum
+  },
   data () {
     return {
       posters: [],
@@ -47,6 +52,9 @@ export default {
         .catch((error) => {
           console.log(error)
         })
+    },
+    select (elementoSelezionato) {
+      console.log(elementoSelezionato)
     }
   },
   mounted () {
@@ -55,4 +63,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.loader {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
